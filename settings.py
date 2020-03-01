@@ -47,7 +47,7 @@ class Settings:
                     GoogleAnalyticsAccount(
                         account=record["account"],
                         webproperty=record["webproperty"],
-                        profile=record["webproperty"],
+                        profile=record["profile"],
                     )
                 )
         return accounts
