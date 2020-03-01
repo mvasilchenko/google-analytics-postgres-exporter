@@ -6,7 +6,7 @@ import yaml
 
 @dataclass
 class GoogleAnalyticsCredentials:
-    client_id: str
+    client_email: str
     private_key: str
 
 
@@ -34,7 +34,8 @@ class Settings:
         for record in self.yaml_file:
             if record.get("id", False) == "credentials":
                 return GoogleAnalyticsCredentials(
-                    client_id=record["client_email"], private_key=record["private_key"]
+                    client_email=record["client_email"],
+                    private_key=record["private_key"],
                 )
 
     @property
