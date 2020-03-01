@@ -25,7 +25,7 @@ class Metric:
     end_date: str
 
 
-class SettingsParser:
+class Settings:
     def __init__(self, yaml_file: str):
         self.yaml_file = yaml.load(open(yaml_file))
 
