@@ -13,6 +13,7 @@ googleanalytics = "*"
 pycrypto = "*"
 pandas = "*"
 pyyaml = "*"
+sqlalchemy = "*"
 
 [requires]
 python_version = "3.7.1"
