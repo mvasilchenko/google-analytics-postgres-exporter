@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.7.1
 
 WORKDIR /app
 
@@ -10,3 +10,5 @@ COPY Pipfile.lock /app/Pipfile.lock
 RUN pipenv install --system -d
 
 COPY . /app
+
+CMD ["python", "main.py"]
