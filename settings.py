@@ -29,14 +29,16 @@ class Settings:
     def __init__(self, yaml_file: str):
         self.yaml_file = yaml.load(open(yaml_file))
 
-    def credentials_parser(self):
+    @property
+    def credentials(self):
         for record in self.yaml_file:
             if record.get("id", False) == "credentials":
                 return GoogleAnalyticsCredentials(
                     client_id=record["client_email"], private_key=record["private_key"]
                 )
 
-    def accounts_parser(self):
+    @property
+    def accounts(self):
         accounts = []
         for record in self.yaml_file:
             if record.get("id", False) == "ga settings":
@@ -49,7 +51,8 @@ class Settings:
                 )
         return accounts
 
-    def metrics_parser(self):
+    @property
+    def metrics(self):
         metrics = []
         for record in self.yaml_file:
             if record.get("metrics"):
