@@ -19,6 +19,7 @@ class GoogleAnalyticsAccount:
 
 @dataclass
 class Metric:
+    table_name: str
     metrics: List[str]
     dimensions: List[str]
     start_date: str
@@ -57,5 +58,7 @@ class Settings:
         metrics = []
         for record in self.yaml_file:
             if record.get("metrics"):
-                metrics.append(Metric(**record["attributes"]))
+                metrics.append(
+                    Metric(**record["attributes"], table_name=record["metrics"])
+                )
         return metrics
