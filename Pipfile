@@ -10,11 +10,11 @@ pre-commit = "*"
 
 [packages]
 googleanalytics = "*"
-pycrypto = "*"
 pandas = "*"
 pyyaml = "*"
 sqlalchemy = "*"
 psycopg2-binary = "*"
+pycryptodome = "*"
 
 [requires]
 python_version = "3.7.1"
