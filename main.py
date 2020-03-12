@@ -31,7 +31,7 @@ class GoogleAnalyticsQueryMaster:
 
 
 def main():
-    G = GoogleAnalyticsQueryMaster("example_settings.yaml")
+    G = GoogleAnalyticsQueryMaster(environ["SETTINGS_FILE"])
     P = PostgresMaster(environ["POSTGRES_URL"])
     for ga_account in G.settings.accounts:
         profile = (
