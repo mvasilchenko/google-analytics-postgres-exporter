@@ -1,3 +1,5 @@
+from os import environ
+
 import googleanalytics as ga
 from sqlalchemy import create_engine
 import pandas as pd
@@ -30,7 +32,7 @@ class GoogleAnalyticsQueryMaster:
 
 def main():
     G = GoogleAnalyticsQueryMaster("example_settings.yaml")
-    P = PostgresMaster("postgresql://postgres:postgres@0.0.0.0:5432/postgres")
+    P = PostgresMaster(environ["POSTGRES_URL"])
     for ga_account in G.settings.accounts:
         profile = (
             G.accounts[ga_account.account]
