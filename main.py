@@ -41,7 +41,7 @@ def main():
         )
         for metrics in G.settings.metrics:
             df = pd.DataFrame(G.query(metrics, profile))
-            df.to_sql(metrics.table_name, P.engine, if_exists="append")
+            df.to_sql(metrics.table_name, P.engine, if_exists="replace")
 
 
 if __name__ == "__main__":
